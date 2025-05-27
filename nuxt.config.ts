@@ -1,13 +1,14 @@
 import vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
 
 // PWA Config
-const title = "Vuetify 3 + Nuxt 3 Starter";
-const shortTitle = "Vuetify 3 + Nuxt 3 Starter";
-const description = "Template to get you up and running with Nuxt 3 & Vuetify 3";
-const image = "https://vuetify3nuxt3starter.behonbaker.com/starter.png";
-const url = "https://vuetify3nuxt3starter.behonbaker.com/";
-const author = "Behon Baker";
-const themeColor = "#4f46e5";
+const title = "SKYWARE | Rila";
+const shortTitle = "Rila";
+const description =
+  "Rila е софтуерен продукт, разработен от SKYWARE Group, който ви предоставя централизирано и сигурно прокси за лесен достъп до електронни услуги като НЗИС.";
+const image = "https://skyware-group.com/img/his-cloud.png";
+const url = "https://skyware-group.com/rila";
+const author = "SKYWARE Group";
+const themeColor = "#1c5a6c";
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
@@ -42,8 +43,9 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: "Vuetify 3 + Nuxt 3 Starter",
-      titleTemplate: "%s | Vuetify 3 + Nuxt 3 Starter",
+      title,
+      titleTemplate: "%s",
+      htmlAttrs: { lang: "bg" },
       link: [
         { rel: "stylesheet", href: "https://rsms.me/inter/inter.css" },
         { rel: "preconnect", href: "https://rsms.me/" },
@@ -51,60 +53,26 @@ export default defineNuxtConfig({
         { rel: "canonical", href: url },
       ],
       meta: [
-        {
-          hid: "description",
-          name: "description",
-          content: description,
-        },
+        // basic
+        { hid: "description", name: "description", content: description },
+        { name: "author", content: author },
+        { name: "theme-color", content: themeColor },
+
+        // Open Graph
         { property: "og:site_name", content: title },
         { hid: "og:type", property: "og:type", content: "website" },
-        {
-          hid: "og:url",
-          property: "og:url",
-          content: url,
-        },
-        {
-          hid: "og:image:secure_url",
-          property: "og:image:secure_url",
-          content: image,
-        },
-        {
-          hid: "og:title",
-          property: "og:title",
-          content: title,
-        },
-        {
-          hid: "og:description",
-          property: "og:description",
-          content: description,
-        },
-        {
-          hid: "og:image",
-          property: "og:image",
-          content: image,
-        },
-        //Twitter
+        { hid: "og:url", property: "og:url", content: url },
+        { hid: "og:title", property: "og:title", content: title },
+        { hid: "og:description", property: "og:description", content: description },
+        { hid: "og:image", property: "og:image", content: image },
+        { hid: "og:image:secure_url", property: "og:image:secure_url", content: image },
+
+        // Twitter
         { name: "twitter:card", content: "summary_large_image" },
-        {
-          hid: "twitter:url",
-          name: "twitter:url",
-          content: url,
-        },
-        {
-          hid: "twitter:title",
-          name: "twitter:title",
-          content: title,
-        },
-        {
-          hid: "twitter:description",
-          name: "twitter:description",
-          content: description,
-        },
-        {
-          hid: "twitter:image",
-          name: "twitter:image",
-          content: image,
-        },
+        { hid: "twitter:url", name: "twitter:url", content: url },
+        { hid: "twitter:title", name: "twitter:title", content: title },
+        { hid: "twitter:description", name: "twitter:description", content: description },
+        { hid: "twitter:image", name: "twitter:image", content: image },
       ],
     },
   },
@@ -116,7 +84,7 @@ export default defineNuxtConfig({
       short_name: shortTitle,
       description: description,
       theme_color: themeColor,
-      lang: "en",
+      lang: "bg",
       background_color: "#ffffff",
       icons: [
         {
@@ -147,5 +115,8 @@ export default defineNuxtConfig({
     },
   },
 
-  compatibilityDate: "2024-07-15",
+  // Cloudflare Pages
+  nitro: {
+    preset: "cloudflare-pages",
+  },
 });

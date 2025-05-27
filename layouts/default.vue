@@ -1,9 +1,9 @@
+<script setup lang="ts"></script>
+
 <template>
-	<div>
-		<VApp>
-			<VMain>
-				<slot />
-			</VMain>
-		</VApp>
-	</div>
+  <v-app>
+    <v-main>
+      <slot />
+    </v-main>
+  </v-app>
 </template>
