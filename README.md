@@ -1,9 +1,9 @@
-<h1 align="center">
+<h1>
   <img
-    src="img/his-cloud.png"
-    alt="SKYWARE | Rila Logo"
-    height="60"
-    style="vertical-align: middle; margin-right: 0.5rem;"
+    src="/public/img/his-cloud.png"
+    alt="RepoGraph logo"
+    width="auto" height="60"
+    align="absmiddle"
   />
   SKYWARE | Rila
 </h1>
