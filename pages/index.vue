@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-const model = ref<number>(1);
+const model = ref<number>(2);
 
 // Tabs
 const leftTabs = [
@@ -15,7 +15,7 @@ const rightTabs = [{ value: 3, icon: "mdi-code-json", label: "Swagger" }];
 <template>
   <v-container fluid class="pa-0 d-flex flex-column" height="100%">
     <!-- Top Header -->
-    <div class="border-b border-grey-lighten-2 py-4 px-4">
+    <div class="border-b border-grey-lighten-2 py-4 pr-4">
       <div class="mx-auto d-flex align-center justify-space-between" style="max-width: 1320px">
         <a href="https://skyware-group.com/" target="_blank" rel="noopener">
           <v-img
@@ -66,7 +66,5 @@ const rightTabs = [{ value: 3, icon: "mdi-code-json", label: "Swagger" }];
         </v-tabs>
       </div>
     </div>
-
-    <v-divider />
   </v-container>
 </template>
