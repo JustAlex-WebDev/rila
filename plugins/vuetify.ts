@@ -1,5 +1,6 @@
 import { defineNuxtPlugin } from "#app";
 import { createVuetify } from "vuetify";
+import { VIconBtn } from "vuetify/labs/VIconBtn";
 import { md3 } from "vuetify/blueprints";
 import "vuetify/styles";
 import "@mdi/font/css/materialdesignicons.css";
@@ -13,6 +14,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   const vuetify = createVuetify({
     components: {
       ...components,
+      VIconBtn,
     },
     directives,
     blueprint: md3,
