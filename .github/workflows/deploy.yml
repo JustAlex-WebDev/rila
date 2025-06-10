@@ -26,7 +26,7 @@ jobs:
         run: npm run build
 
       - name: Debug Secrets
-        run: echo "Account ID: ${{ secrets.CF_ACCOUNT_ID }}, API Token: ${{ secrets.CF_API_TOKEN }}"
+        run: echo "API Token: ${{ secrets.CF_API_TOKEN }}"
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1
