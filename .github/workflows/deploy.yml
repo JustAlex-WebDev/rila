@@ -29,8 +29,8 @@ jobs:
 
       - name: Verify output directory
         run: |
-          ls -la .output/public || echo "ERROR: .output/public not found!"
-          [ -d ".output/public" ] || exit 1
+          ls -la dist || echo "ERROR: dist not found!"
+          [ -d "dist" ] || exit 1
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1
@@ -38,4 +38,4 @@ jobs:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
           projectName: "rila"
-          directory: ".output/public"
+          directory: "dist"
