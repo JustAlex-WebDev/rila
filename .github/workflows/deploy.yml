@@ -30,6 +30,6 @@ jobs:
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          projectName: "rila-2"
+          projectName: "rila"
           # Nuxt 3 static output folder:
           directory: ".output/public"
