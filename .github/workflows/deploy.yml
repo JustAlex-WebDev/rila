@@ -5,6 +5,13 @@ on:
     branches:
       - main
 
+concurrency:
+  group: deploy-pages
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -12,25 +19,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Use Node.js 20.x
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20
-          cache: "npm"
+          cache: npm
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Build Nuxt 3 application
-        run: npm run generate # Static output for Pages
-
-      - name: Install Wrangler v4 (avoid deprecated v2)
-        run: npm install -g wrangler@latest
-
-      - name: Verify output directory
-        run: |
-          ls -la dist || echo "ERROR: dist not found!"
-          [ -d "dist" ] || exit 1
+      - name: Generate static files
+        run: npm run generate
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1
