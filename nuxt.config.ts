@@ -14,7 +14,7 @@ const themeColor = "#1c5a6c";
 export default defineNuxtConfig({
   // import styles
   css: ["@/assets/main.scss"],
-
+  ssr: false,
   devtools: { enabled: true },
 
   // enable takeover mode
