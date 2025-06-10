@@ -8,28 +8,34 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Use Node.js 18.x
+      - name: Use Node.js 20.x
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
           cache: "npm"
 
       - name: Install dependencies
         run: npm ci
 
       - name: Build Nuxt 3 application
-        run: npm run build
+        run: npm run generate # Static output for Pages
+
+      - name: Install Wrangler v4 (avoid deprecated v2)
+        run: npm install -g wrangler@latest
+
+      - name: Verify output directory
+        run: |
+          ls -la .output/public || echo "ERROR: .output/public not found!"
+          [ -d ".output/public" ] || exit 1
 
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/pages-action@v2
+        uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
           projectName: "rila"
-          # Nuxt 3 static output folder:
           directory: ".output/public"
