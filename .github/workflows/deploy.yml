@@ -25,9 +25,6 @@ jobs:
       - name: Build Nuxt 3 application
         run: npm run build
 
-      - name: Debug Secrets
-        run: echo "API Token: ${{ secrets.CF_API_TOKEN }}"
-
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
